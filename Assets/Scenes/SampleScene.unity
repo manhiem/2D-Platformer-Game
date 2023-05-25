@@ -462,3 +462,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1442715380}
+  playerCollider: {fileID: 1442715384}
