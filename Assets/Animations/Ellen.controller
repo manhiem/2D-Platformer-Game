@@ -14,19 +14,30 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
+<<<<<<< Updated upstream
     m_Controller: {fileID: 0}
   - m_Name: Walk
+=======
+    m_Controller: {fileID: 9100000}
+  - m_Name: Crouch
+>>>>>>> Stashed changes
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
+<<<<<<< Updated upstream
     m_Controller: {fileID: 0}
   - m_Name: Crouch
     m_Type: 4
+=======
+    m_Controller: {fileID: 9100000}
+  - m_Name: Vertical
+    m_Type: 1
+>>>>>>> Stashed changes
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -351,7 +362,14 @@ AnimatorStateMachine:
     m_Position: {x: 156, y: 348, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102081866993348006}
+<<<<<<< Updated upstream
     m_Position: {x: 420, y: 24, z: 0}
+=======
+    m_Position: {x: 384, y: 240, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102879882554465782}
+    m_Position: {x: 384, y: 432, z: 0}
+>>>>>>> Stashed changes
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 1101080947654610776}
