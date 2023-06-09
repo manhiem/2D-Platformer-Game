@@ -14,26 +14,17 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-<<<<<<< Updated upstream
     m_Controller: {fileID: 0}
   - m_Name: Walk
-=======
     m_Controller: {fileID: 9100000}
   - m_Name: Crouch
->>>>>>> Stashed changes
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-<<<<<<< Updated upstream
-    m_Controller: {fileID: 0}
-  - m_Name: Crouch
-    m_Type: 4
-=======
     m_Controller: {fileID: 9100000}
   - m_Name: Vertical
     m_Type: 1
->>>>>>> Stashed changes
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
