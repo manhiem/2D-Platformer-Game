@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.tag == "Ground")
         {
-            Debug.Log("Collider Entered!");
             isJump = false;
         }
     }
@@ -93,7 +92,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Ground")
         {
-            Debug.Log("Collider Exited");
             isJump = true;
         }
     }
