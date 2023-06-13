@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rigidBody;
     public float jumpForce;
     public bool isJump = false;
+
+    // Health
+    public List<Image> lifeSprite = new List<Image>();
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +89,13 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             isJump = false;
+        }
+        
+        if(other.gameObject.GetComponent<EnemyController>() != null)
+        {
+            Image lastImage = lifeSprite[lifeSprite.Count - 1];
+            Destroy(lastImage);
+            lifeSprite.RemoveAt(lifeSprite.Count - 1);
         }
     }
 
