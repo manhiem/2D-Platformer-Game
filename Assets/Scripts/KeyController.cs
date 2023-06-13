@@ -8,8 +8,11 @@ public class KeyController : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int score;
 
+    public Animator keyAnimator;
+
     private void Awake()
     {
+        keyAnimator = GetComponent<Animator>();
         score = 0;
         IncrementScore();
     }
@@ -20,12 +23,19 @@ public class KeyController : MonoBehaviour
         {
             score += 10;
             IncrementScore();
-            Destroy(gameObject);
+            StartCoroutine(KeyDestroy());
         }
     }
 
     private void IncrementScore()
     {
         scoreText.text = "Score: " + score;
+    }
+
+    IEnumerator KeyDestroy()
+    {
+        keyAnimator.Play("FadeOut");
+        yield return new WaitForSeconds(0.800f);
+        Destroy(gameObject);
     }
 }
