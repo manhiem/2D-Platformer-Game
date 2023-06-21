@@ -63,16 +63,24 @@ public class PlayerController : MonoBehaviour
 
     private void CrouchController(float horizontal)
     {
+        Vector2 oldColliderOffset = colliderOffset;
+        Vector2 oldColliderSize = colliderSize;
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            horizontal = 0;
+            moveSpeed = 0;
             animator.SetBool("Crouch", true);
+
             // Change Collider
+            colliderOffset = new Vector2(-0.07312155f, 0.60546f);
+            colliderSize = new Vector2(0.8352113f, 1.376446f);
         }
         if (horizontal != 0 || Input.GetKeyUp(KeyCode.LeftControl))
         {
             animator.SetBool("Crouch", false);
+
             // Change Collider
+            colliderOffset = new Vector2(-0.02883071f, 0.9818994f);
+            colliderSize = new Vector2(0.6313068f, 2.129324f);
         }
     }
 
@@ -80,14 +88,14 @@ public class PlayerController : MonoBehaviour
     {
         if (!isJump && vertical > 0) //&& rigidBody.velocity.y == 0
         {
-            rigidBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Force);
+            rigidBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             isJump = true;
         }
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Ground")
+        if (other.gameObject.CompareTag("Ground"))
         {
             isJump = false;
         }
@@ -109,7 +117,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Ground")
+        if (other.gameObject.CompareTag("Ground"))
         {
             isJump = true;
         }

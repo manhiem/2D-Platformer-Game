@@ -18,10 +18,8 @@ public class LobbyManager : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
-
-
     }
 
     private void Start()

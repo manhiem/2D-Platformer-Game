@@ -10,27 +10,19 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        // Move Animation
+        // Move Animation and Physics
         Vector3 scale = transform.localScale;
         if (movingRight)
         {
             scale.x = 1.0f;
-        }
-        else
-        {
-            scale.x = -1.0f;
-        }
-        transform.localScale = scale;
-
-        // Move Physics
-        if (movingRight)
-        {
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
         }
         else
         {
+            scale.x = -1.0f;
             transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
         }
+        transform.localScale = scale;
 
         CheckEdges();
     }
