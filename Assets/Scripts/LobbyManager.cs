@@ -1,21 +1,16 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class LobbyManager : MonoBehaviour
 {
-    public string level;
+    //public string level;
     public static LobbyManager Instance { get; private set; }
 
     public GameObject levelPanel;
     public GameObject startPanel;
 
-    //public TextMeshProUGUI restartBtn;
-    //public TextMeshProUGUI quitBtn;
     private void Awake()
     {
-
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -25,23 +20,50 @@ public class LobbyManager : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
+
+
     }
 
-    public void setLevel(string levelName)
+    private void Start()
     {
-        level = levelName;
-        StartLevel(level);
+        //Set all levels as Locked and Level1 as Unlocked
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("UnLockedLevels", 1);
+
+        //Debug.Log(SceneManager.sceneCountInBuildSettings);
     }
 
-    public void RestartGame(string levelName)
+    public void CheckLevelMode(int level)
     {
-        SceneManager.LoadScene(levelName);
+        int mode = PlayerPrefs.GetInt("UnLockedLevels");
+        Debug.Log(level);
+        Debug.Log(mode);
+        if(mode == level)
+        {
+            StartLevel(level);
+        }
+        else
+        {
+            Debug.Log("Please Complete the earlier levels to unlock this!!");
+        }
     }
-    public void StartLevel(string levelName)
+
+    public void SetLevelUnlocked()
     {
-        SceneManager.LoadScene(levelName);
+        int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        PlayerPrefs.SetInt("UnLockedLevels", nextLevelIndex);
+        PlayerPrefs.Save();
+        Debug.Log(PlayerPrefs.GetInt("UnLockedLevels"));
+        CheckLevelMode(nextLevelIndex);
     }
-    public void StartGame()
+
+
+    public void StartLevel(int levelIndex)
+    {
+        SceneManager.LoadScene(levelIndex);
+    }
+
+    public void ShowLevelPanel()
     {
         startPanel.SetActive(false);
         levelPanel.SetActive(true);

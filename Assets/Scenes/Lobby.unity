@@ -504,7 +504,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 599185298}
-        m_MethodName: StartGame
+        m_MethodName: ShowLevelPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -703,11 +703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fc2b3bfb967f64e8edb60b5c2dc3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: Level1
   levelPanel: {fileID: 1604756247}
   startPanel: {fileID: 654757495}
-  restartBtn: {fileID: 0}
-  quitBtn: {fileID: 0}
 --- !u!4 &599185299
 Transform:
   m_ObjectHideFlags: 0
@@ -1217,14 +1214,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 599185298}
-        m_MethodName: setLevel
-        m_Mode: 5
+        m_MethodName: CheckLevelMode
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: Level1
+          m_StringArgument: 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &895340115
@@ -1342,14 +1339,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 599185298}
-        m_MethodName: setLevel
-        m_Mode: 5
+        m_MethodName: CheckLevelMode
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: Level2
+          m_StringArgument: 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1015344012
@@ -1623,14 +1620,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 599185298}
-        m_MethodName: setLevel
-        m_Mode: 5
+        m_MethodName: CheckLevelMode
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: Level4
+          m_StringArgument: 4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1556657931
@@ -2134,14 +2131,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 599185298}
-        m_MethodName: setLevel
-        m_Mode: 5
+        m_MethodName: CheckLevelMode
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: Level3
+          m_StringArgument: 3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1930238208

@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -80,13 +78,12 @@ public class PlayerController : MonoBehaviour
 
     private void JumpController(float vertical)
     {
-        if (!isJump && vertical > 0 && rigidBody.velocity.y == 0)
+        if (!isJump && vertical > 0) //&& rigidBody.velocity.y == 0
         {
             rigidBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Force);
             isJump = true;
         }
     }
-
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -110,7 +107,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.tag == "Ground")

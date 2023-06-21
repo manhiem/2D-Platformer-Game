@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndScreen : MonoBehaviour
@@ -9,7 +7,7 @@ public class EndScreen : MonoBehaviour
     public void RestartGame()
     {
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.SetActiveScene(scene);
+        LobbyManager.Instance.StartLevel(scene.buildIndex);
     }
 
     public void QuitGame()
