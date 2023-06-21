@@ -36,8 +36,6 @@ public class LobbyManager : MonoBehaviour
     public void CheckLevelMode(int level)
     {
         int mode = PlayerPrefs.GetInt("UnLockedLevels");
-        Debug.Log(level);
-        Debug.Log(mode);
         if(mode == level)
         {
             StartLevel(level);
