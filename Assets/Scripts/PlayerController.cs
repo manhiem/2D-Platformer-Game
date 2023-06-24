@@ -4,19 +4,30 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator animator;
-    public float moveSpeed;
-    public Vector2 colliderOffset;
-    public Vector2 colliderSize;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private float moveSpeed;
+    [SerializeField]
+    private Vector2 colliderOffset;
+    [SerializeField]
+    private Vector2 colliderSize;
 
     // Jump Vars
-    public Rigidbody2D rigidBody;
-    public float jumpForce;
-    public bool isJump = false;
+    [SerializeField]
+    private Rigidbody2D rigidBody;
+    [SerializeField]
+    private float jumpForce;
+    [SerializeField]
+    private bool isJump = false;
 
     // Health
-    public List<Image> lifeSprite = new List<Image>();
-    public GameObject endScreen;
+    [SerializeField]
+    private List<Image> lifeSprite = new List<Image>();
+    [SerializeField]
+    private GameObject endScreen;
+
+    public bool Invincible = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +47,9 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
         animator.SetFloat("Vertical", Mathf.Abs(vertical));
 
+        JumpController(vertical);
         MoveController(horizontal);
         CrouchController(horizontal);
-        JumpController(vertical);
     }
 
     private void MoveController(float horizontal)
@@ -60,6 +71,16 @@ public class PlayerController : MonoBehaviour
         curPos.x += horizontal * moveSpeed * Time.deltaTime;
         transform.position = curPos;
         SoundManager.Instance.PlayEffect(Sounds.PlayerMovement);
+    }
+
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetMoveSpeed(float speedInfo)
+    {
+        moveSpeed = speedInfo;
     }
 
     private void CrouchController(float horizontal)
@@ -94,6 +115,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public float GetJumpForce()
+    {
+        return jumpForce;
+    }
+
+    public void SetJumpForce(float forceInfo)
+    {
+        jumpForce = forceInfo;
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -101,7 +132,7 @@ public class PlayerController : MonoBehaviour
             isJump = false;
         }
         
-        if(other.gameObject.GetComponent<EnemyController>() != null)
+        if(!Invincible && other.gameObject.GetComponent<EnemyController>() != null)
         {
             if (lifeSprite.Count!=0)
             {

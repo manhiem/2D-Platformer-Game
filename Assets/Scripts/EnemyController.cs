@@ -38,4 +38,13 @@ public class EnemyController : MonoBehaviour
             movingRight = true;
         }
     }
+
+    public void DisableMovement()
+    {
+        moveSpeed = 0f;
+    }
+    public void EnableMovement()
+    {
+        moveSpeed = 2f;
+    }
 }
